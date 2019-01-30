@@ -36,7 +36,7 @@ public class FileHtml1 {
 
                         File f=new File("/*output file path nad name*/");
                         FileWriter fw=new FileWriter(f,true);
-                        String header="Content-Type: text/html,<!DOCTYPE html>,<h2>Kenan/JBOSS/SCMS Servers:</h2>,<html>,<body>,<table border=1 style=width:70%>,<tr>,<td bgcolor=#38E0C7>LOG_DETAILS</td>,<td bgcolor=#38E0C7>COUNT</td>,<td bgcolor=#38E0C7>USED_SPACE</td>,</tr>";
+                        String header="Content-Type: text/html,<!DOCTYPE html>,<h2>Header:</h2>,<html>,<body>,<table border=1 style=width:70%>,<tr>,<td bgcolor=#38E0C7>COLUMN1</td>,<td bgcolor=#38E0C7>COLUMN2</td>,<td bgcolor=#38E0C7>COLUMN3</td>,</tr>";
                         StringTokenizer st=new StringTokenizer(header,",");
                         while(st.hasMoreElements())
                         {
