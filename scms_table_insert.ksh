@@ -7,8 +7,8 @@ awk '{print $1}' scms_163.txt>> s.txt
 cat s.txt| xargs | sed -e 's/ /,/g'>> w.txt
 awk '{print $1}' scms_164.txt>> p.txt
 cat p.txt| xargs | sed -e 's/ /,/g'>> t.txt
-SCMS1=10.1.152.163
-SCMS2=10.1.152.164
+SCMS1=$DB1_IP
+SCMS2=$DB2_IP
 IPSCMS1=`cat w.txt|cut -d, -f1`
 IPSCMS1COUNT=`cat w.txt|cut -d, -f2`
 IPSCMS1SIZE=`cat w.txt|cut -d, -f3`
@@ -23,13 +23,13 @@ IPSCMS2CACOUNT=`cat t.txt|cut -d, -f5`
 
 ############## Connection to Database #################################################
 export ORACLE_HOME =`cat /s1/kenan/arbor/tsky_path/oracle_home_path.txt|head -1|tail -1`
-USER=migration
-PASS=migration
-DS=pbpcu02
+USER=$userName
+PASS=$pasword
+DS=$DB
 
 cd $ORACLE_HOME/bin
 
-sqlplus -s migration/migration@pbpcu02 << THEEND1
+sqlplus -s $userName/$pasword@$DB << THEEND1
 set heading off
 set echo off
 set feedback off

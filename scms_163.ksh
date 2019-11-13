@@ -2,14 +2,18 @@
 #Written by Arun
 
 export dt=`date +"%Y%m%d"`
-export ORACLE_HOME=`cat /s1/scms/app/scms/tsky_path/oracle_home_path.txt`
-export sql_user_name=scms_batch
-export sql_user_pwd=sKieBatch
-export REPORT_PATH=/s1/scms/app/scms/scripts/DAS_sheet
+#Oracle Home path
+export ORACLE_HOME=`cat /s1/scms/app/**/**/**.txt`
+#userName 
+export sql_user_name=****
+#Password
+export sql_user_pwd=***
+##Destination path
+export REPORT_PATH=/s1/scms/app/**/**
 ##########Getting Yesterday's date in desired Format#####################
 #export YESTERDAY=$((dt-1))
 YESTERDAY=$(TZ=$(date +%Y%m%d)+24; date '+%Y%m%d')
-export sql_service=`cat /s1/scms/app/scms/tsky_path/db_name.txt`
+export sql_service=`cat /s1/scms/app/**/**/db_name.txt`
 export SQLPLUS=$ORACLE_HOME/bin/sqlplus
 
 
@@ -30,7 +34,7 @@ mv scms_163.txt /s1/scms/app/scms/scripts/DAS_sheet/.
 
 cd /s1/scms/app/scms/scripts/DAS_sheet
 
-sftp kenanmonitor@10.1.18.58 <<-!
+sftp $userName@$ip <<-!
 cd /s1/kenan/arbor/custom_utilities/DAS_sheet
 mput scms_163.txt
 bye

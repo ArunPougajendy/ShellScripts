@@ -25,13 +25,13 @@ IPSCMS1TUXCOUNT=`cat w.txt|cut -d, -f5`
 
 ############## Connection to Database #################################################
 export ORACLE_HOME =`cat /s1/kenan/arbor/tsky_path/oracle_home_path.txt|head -1|tail -1`
-USER=migration
-PASS=migration
-DS=pbpcu02
+USER=$userName
+PASS=$pasword
+DS=$DB
 
 cd $ORACLE_HOME/bin
 
-sqlplus -s migration/migration@pbpcu02 << THEEND1
+sqlplus -s $userName/$pasword@$DB << THEEND1
 set heading off
 set echo off
 set feedback off
